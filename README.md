@@ -57,6 +57,7 @@ You can click the icon in the top right of the page in the navbar to switch betw
 - I opted to make my own graph as I thought it would be fun to do and I didn't want to rely on a third party library, I am quite happy with the result. Simple but effective.
 - I made the site responsive so it will also work on mobile
 - I considered using Firebase to store the reviews permanently instead of the reviews just lasting whilst the page is loaded. However this means that I would have had to setup auth, google captcha to prevent bots, and running locally wouldn't have been seamless as Secrets would be needed to access the firestore data. So for the sake of time I opted to mock that out.
+- Email validation regex was found on StackOverflow, I like regex but I there was little need for me to recreate it when it is so easily found online.
 
 ### Accessibility
 
@@ -69,7 +70,7 @@ You can click the icon in the top right of the page in the navbar to switch betw
 
 - I used Next.js as it is used at Checkout and it is a great framework
 - I used tailwind for css as it meant I had to write very little in my css files and it sped up development.
-- I used Testing Library and Jest for testing as they are the best approach to unit testing React.
+- I used Testing Library and Jest for testing as they are a great approach to unit testing React and React hooks.
 - I used Vercel for CI/CD as it is beautifully simple and very fast, and also provides inbuilt logging and metrics.
 - I used TypeScript for better linting/compilation and type safe development.
 
