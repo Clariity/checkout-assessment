@@ -8,7 +8,7 @@ At Checkout-Reviews you can
 
 ## Run locally
 
-The website has been deployed to Vercel at:
+The website has been deployed to Vercel at: https://checkout-assessment.vercel.app/
 
 If you wish to run it locally, you can do so with the following:
 
