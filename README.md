@@ -1,34 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Checkout-Reviews
 
-## Getting Started
+At Checkout-Reviews you can
 
-First, run the development server:
+- Write a review for a product (name, email, rating 1 to 5 stars and a ‘comment’ section).
+- See all the comments for the product.
+- See a chart showing the number of ratings for each level of rating.
+
+## Run locally
+
+The website has been deployed to Vercel at:
+
+If you wish to run it locally, you can do so with the following:
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Testing
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To run the tests you can run.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run test
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Components and Pages have 100% test coverage.
 
-## Learn More
+## How to use
 
-To learn more about Next.js, take a look at the following resources:
+### Form
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To fill out the form you must:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Enter a name into the name field, profane words are not allowed
+- Enter a valid email address into the email field
+- Select a star rating of at least 1 star
+- Enter a comment into the comment field, profane words are not allowed
 
-## Deploy on Vercel
+Once all of those are completed you can click Submit. If you have missed a step, an error message will show and the fields you have not completed correctly will be highlighted.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You will know you have submitted successfully as:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- a modal will pop up confirming the submission.
+- the graph will animate and adjust accordingly to the new rating
+- the new rating will appear at the top of the list of reviews
+
+### Theme
+
+You can click the icon in the top right of the page in the navbar to switch between light and dark theme.
+
+## Choices Made and Potential Improvements
+
+### Design Choices
+
+- I opted to make my own graph as I thought it would be fun to do and I didn't want to rely on a third party library, I am quite happy with the result. Simple but effective.
+- I made the site responsive so it will also work on mobile
+- I considered using Firebase to store the reviews permanently instead of the reviews just lasting whilst the page is loaded. However this means that I would have had to setup auth, google captcha to prevent bots, and running locally wouldn't have been seamless as Secrets would be needed to access the firestore data. So for the sake of time I opted to mock that out.
+
+### Accessibility
+
+- I added theming that defaults to the user's system preference as users may find it easier to read darker themes.
+- I used semantic html for the nav and footer for screen readers.
+- I added error checking and highlighting to make the form as intuitive as possible to use, each element is uniquely named for screen readers.
+- You can also navigate the form using keyboard only, utilising the tab key to move around the form and submit it. The site has 100 accessibility score on lighthouse.
+
+### Tech Stack
+
+- I used Next.js as it is used at Checkout and it is a great framework
+- I used tailwind for css as it meant I had to write very little in my css files and it sped up development.
+- I used Testing Library and Jest for testing as they are the best approach to unit testing React.
+- I used Vercel for CI/CD as it is beautifully simple and very fast, and also provides inbuilt logging and metrics.
+- I used TypeScript for better linting/compilation and type safe development.
+
+### Possible Improvements
+
+- A products page with unique reviews for each product, as currently this page on its own doesn't make much sense, we don't know what we are reviewing.
+- Auth so people cannot post as just anyone.
